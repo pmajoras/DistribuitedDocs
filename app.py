@@ -1,20 +1,21 @@
 import tornado.ioloop
 import tornado.web
 from src.handlers.DocumentsHandler import DocumentsHandler
+from src.handlers.DocumentsHandlerById import DocumentsHandlerById
 
 
-class A():
-    def __init__(self, name):
-        print("world" + name)
+#class A():
+  #  def __init__(self, name):
+ #       print("world" + name)
 
 
-class B(A):
-    def __init__(self, name):
-        print("hello")
-        super().__init__(name)
+#class B(A):
+   # def __init__(self, name):
+  #      print("hello")
+ #       super().__init__(name)
 
 
-B('adwqdwq')
+#B('adwqdwq')
 
 
 class MainHandler(tornado.web.RequestHandler):
@@ -25,8 +26,8 @@ class MainHandler(tornado.web.RequestHandler):
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
-        (r"/test?", DocumentsHandler),
-        (r"/test/([0-9]+)?", DocumentsHandler)
+        (r"/documents", DocumentsHandler),
+        (r"/documents/([0-9]+)", DocumentsHandlerById)
     ])
 
 
